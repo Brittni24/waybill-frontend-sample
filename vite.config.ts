@@ -16,8 +16,8 @@ export default defineConfig({
         name: 'Waybill - Waypoint delivery planner',
         short_name: 'Waybill',
         description: 'Plan, load, deliver and receive, even when the signal drops.',
-        theme_color: '#1E40AF',
-        background_color: '#F8FAFC',
+        theme_color: '#46657A',
+        background_color: '#F4F7F8',
         display: 'standalone',
         start_url: '/',
         icons: [

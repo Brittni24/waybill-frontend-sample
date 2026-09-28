@@ -22,18 +22,20 @@ import { DEPOTS } from '@/domain/reference'
 import { cn } from '@/lib/utils'
 import { useDepot, useUi } from '@/store/ui'
 import { useStore } from '@/store/useStore'
+import { LanguageSwitcher } from '@/components/domain/LanguageSwitcher'
+import { translate, useLanguage } from '@/i18n'
 
 const NAV = [
-  { to: '/dispatcher', label: 'Today', icon: LayoutDashboard, end: true },
-  { to: '/dispatcher/orders', label: 'Order queue', icon: ClipboardList },
-  { to: '/dispatcher/planning', label: 'Planning board', icon: Workflow },
-  { to: '/dispatcher/deferrals', label: 'Deferrals', icon: PauseCircle },
-  { to: '/dispatcher/runs', label: 'Live runs', icon: Radar },
-  { to: '/dispatcher/fleet', label: 'Fleet and fuel', icon: Fuel },
-  { to: '/dispatcher/endofday', label: 'End of day', icon: Sunset },
-  { to: '/dispatcher/outlook', label: 'Capacity outlook', icon: BarChart3 },
-  { to: '/dispatcher/team', label: 'Users and roles', icon: ShieldCheck },
-  { to: '/dispatcher/activity', label: 'Activity log', icon: Activity },
+  { to: '/dispatcher', key: 'nav.today', icon: LayoutDashboard, end: true },
+  { to: '/dispatcher/orders', key: 'nav.orders', icon: ClipboardList },
+  { to: '/dispatcher/planning', key: 'nav.planning', icon: Workflow },
+  { to: '/dispatcher/deferrals', key: 'nav.deferrals', icon: PauseCircle },
+  { to: '/dispatcher/runs', key: 'nav.runs', icon: Radar },
+  { to: '/dispatcher/fleet', key: 'nav.fleet', icon: Fuel },
+  { to: '/dispatcher/endofday', key: 'nav.endOfDay', icon: Sunset },
+  { to: '/dispatcher/outlook', key: 'nav.outlook', icon: BarChart3 },
+  { to: '/dispatcher/team', key: 'nav.team', icon: ShieldCheck },
+  { to: '/dispatcher/activity', key: 'nav.activity', icon: Activity },
 ]
 
 export function DispatcherLayout() {
@@ -45,6 +47,7 @@ export function DispatcherLayout() {
   const day = useStore((s) => s.world.s.dayLabel)
   const depot = useDepot()
   const setDepot = useUi((s) => s.setDepot)
+  const language = useLanguage()
 
   const links = (
     <nav className="flex flex-col gap-1">
@@ -61,7 +64,7 @@ export function DispatcherLayout() {
             )
           }
         >
-          <n.icon className="size-5" /> {n.label}
+          <n.icon className="size-5" /> {translate(language, n.key)}
         </NavLink>
       ))}
     </nav>
@@ -97,6 +100,7 @@ export function DispatcherLayout() {
           {phase === 'planning' && <Chip tone="late">Orders closed. Plan needed</Chip>}
           {phase === 'published' && <Chip tone="served">Plan published</Chip>}
           <SyncBadge />
+          <LanguageSwitcher compact />
           <NoticeBell to="/dispatcher/notices" />
           <div className="hidden text-right sm:block">
             <p className="text-sm font-medium leading-tight">{session.name}</p>

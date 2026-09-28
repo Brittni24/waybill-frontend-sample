@@ -65,5 +65,5 @@ src/styles/     tokens.css (the style guide)
 ## Known limits
 
 - All data is mock and lives in the browser. Reference numbers (district travel times, outlet windows) are placeholders, except the Fresh handling times and Colombo and Gampaha travel times, which match the brief's worked examples. Load the real CSVs when you build the backend. Do not commit the competition datasets to a public repository.
-- The language switch (English, Sinhala, Tamil) is designed but not built. Photos are simulated with a button. There is no real GPS or push notification.
+- Language switching is implemented for English, Sinhala and Tamil on login and shared role navigation; page-specific content is being expanded through the same translation dictionary. Photos are simulated with a button. There is no real GPS or push notification.
 - Service-worker offline loading only works on the production build (`npm run build && npm run preview`, or the deployed site).

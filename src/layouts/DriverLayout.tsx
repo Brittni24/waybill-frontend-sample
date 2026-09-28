@@ -4,6 +4,8 @@ import { OfflineBanner, SyncBadge } from '@/components/domain/OfflineBanner'
 import { noticesFor } from '@/lib/access'
 import { cn } from '@/lib/utils'
 import { useStore } from '@/store/useStore'
+import { LanguageSwitcher } from '@/components/domain/LanguageSwitcher'
+import { translate, useLanguage } from '@/i18n'
 
 export function DriverLayout() {
   const nav = useNavigate()
@@ -13,6 +15,7 @@ export function DriverLayout() {
   const d = useStore((st) => st.world.d)
   const unread = noticesFor(s, session).filter((n) => !n.read).length
   const pendingConflicts = d.conflicts.filter((c) => !c.resolved).length
+  const language = useLanguage()
   const tab = ({ isActive }: { isActive: boolean }) =>
     cn('relative flex h-14 flex-1 flex-col items-center justify-center gap-0.5 rounded-lg text-xs font-semibold', isActive ? 'bg-accent text-primary' : 'text-muted-foreground')
   return (
@@ -25,6 +28,7 @@ export function DriverLayout() {
               <p className="truncate text-xs text-muted-foreground">{session.vehicleId} · {session.depot}</p>
             </div>
             <SyncBadge />
+            <LanguageSwitcher compact />
             <button
               className="grid size-11 place-items-center rounded-md hover:bg-accent"
               aria-label="Sign out"
@@ -44,16 +48,16 @@ export function DriverLayout() {
         <nav className="fixed bottom-0 left-1/2 z-30 w-full max-w-md -translate-x-1/2 border-t bg-card p-2 safe-bottom">
           <div className="flex gap-1">
             <NavLink to="/driver" end className={tab}>
-              <Route className="size-6" /> Trips
+              <Route className="size-6" /> {translate(language, 'nav.trips')}
             </NavLink>
             <NavLink to="/driver/sync" className={tab}>
-              <RefreshCw className="size-6" /> Sync
+              <RefreshCw className="size-6" /> {translate(language, 'nav.sync')}
               {(d.outbox.length > 0 || pendingConflicts > 0) && (
                 <span className="absolute right-4 top-1 grid min-w-5 place-items-center rounded-full bg-late px-1 text-[11px] font-bold text-black">{d.outbox.length + pendingConflicts}</span>
               )}
             </NavLink>
             <NavLink to="/driver/notices" className={tab}>
-              <Bell className="size-6" /> Alerts
+              <Bell className="size-6" /> {translate(language, 'nav.alerts')}
               {unread > 0 && <span className="absolute right-4 top-1 grid min-w-5 place-items-center rounded-full bg-deferred px-1 text-[11px] font-bold text-white">{unread}</span>}
             </NavLink>
           </div>
