@@ -94,6 +94,24 @@
   }
 }
 
+@keyframes waybill-reveal-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes waybill-route-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.reveal-up {
+  animation: waybill-reveal-up 520ms ease-out both;
+}
+
+.route-pulse {
+  animation: waybill-route-pulse 1.8s ease-in-out infinite;
+}
+
 /* Ticket-style card: small notches on both sides, used for trips and orders. */
 .ticket {
   --notch: 9px;

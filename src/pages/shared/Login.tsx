@@ -19,6 +19,7 @@ export function Login() {
   const [remember, setRemember] = React.useState(false)
   const [error, setError] = React.useState('')
   const [fails, setFails] = React.useState(0)
+  const [selectedDemo, setSelectedDemo] = React.useState('')
   const locked = fails >= 3
   const language = useLanguage()
   const tx = (key: string) => translate(language, key)
@@ -44,18 +45,25 @@ export function Login() {
       <section className="relative hidden overflow-hidden bg-primary p-10 text-primary-foreground lg:flex lg:flex-col lg:justify-between">
         <div className="flex items-center justify-between"><BrandMark light className="text-primary-foreground" /><LanguageSwitcher compact /></div>
         <div className="max-w-md">
-          <h1 className="text-5xl font-extrabold leading-[1.05]">One delivery day, four people, one plan.</h1>
-          <p className="mt-4 text-lg opacity-90">
+          <p className="reveal-up text-sm font-bold uppercase tracking-[0.16em] text-primary-foreground/70">Waybill · delivery operations</p>
+          <h1 className="reveal-up mt-4 text-5xl font-extrabold leading-[1.05] [animation-delay:120ms]">Plan once. Keep every handoff clear.</h1>
+          <p className="reveal-up mt-4 text-lg opacity-90 [animation-delay:220ms]">
             Waypoint's dispatchers, loaders, drivers and store managers see the same trip, each in the way they work.
           </p>
-          <ol className="mt-10 space-y-5">
-            {['Orders close at 4 PM', 'The plan is built and explained', 'The dock loads in stop order', 'The driver delivers, even offline', 'The store confirms what arrived'].map((t, i) => (
-              <li key={t} className="flex items-center gap-4">
-                <span className="grid size-8 place-items-center rounded-full border-2 border-white/70 text-sm font-bold text-white">{i + 1}</span>
+          <div className="reveal-up mt-10 rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm [animation-delay:340ms]">
+            <div className="flex items-center justify-between">
+              <p className="font-semibold">How a delivery day moves</p>
+              <span className="flex items-center gap-2 text-xs text-primary-foreground/70"><span className="route-pulse size-2 rounded-full bg-green-300" /> Live flow</span>
+            </div>
+            <ol className="mt-5 space-y-4">
+              {['Orders close at 4 PM', 'The plan is built and explained', 'The dock loads in stop order', 'The driver delivers, even offline', 'The store confirms what arrived'].map((t, i) => (
+              <li key={t} className="flex items-center gap-4 reveal-up" style={{ animationDelay: `${460 + i * 90}ms` }}>
+                <span className="grid size-8 shrink-0 place-items-center rounded-full border-2 border-white/70 text-sm font-bold text-white">{i + 1}</span>
                 <span className="font-medium">{t}</span>
               </li>
-            ))}
-          </ol>
+              ))}
+            </ol>
+          </div>
         </div>
         <p className="text-sm opacity-70">Demo build with mock data. Tech-Triathlon 2026 Designathon.</p>
       </section>
@@ -64,7 +72,8 @@ export function Login() {
         <div className="mx-auto w-full max-w-md space-y-6">
           <div className="flex items-center justify-between lg:hidden"><BrandMark /><LanguageSwitcher compact /></div>
           <div>
-            <h2 className="text-3xl font-bold">{tx('login.title')}</h2>
+            <p className="text-sm font-semibold text-primary">Welcome to Waybill</p>
+            <h2 className="mt-1 text-3xl font-bold">{tx('login.title')}</h2>
             <p className="mt-1 text-sm text-muted-foreground">{tx('login.subtitle')}</p>
           </div>
 
@@ -108,8 +117,11 @@ export function Login() {
             {!locked && <p className="text-center text-xs text-muted-foreground">{tx('login.forgot')}</p>}
           </form>
 
-          <div className="space-y-2 border-t pt-5">
-            <p className="text-sm font-semibold">{tx('login.demo')}</p>
+          <div className="space-y-3 border-t pt-5">
+            <div>
+              <p className="text-sm font-semibold">{tx('login.demo')}</p>
+              <p className="mt-1 text-xs text-muted-foreground">New here? Choose a role to prefill a safe demo account.</p>
+            </div>
             <div className="grid gap-2 sm:grid-cols-2">
               {ACCOUNTS.map((a) => (
                 <button
@@ -120,14 +132,16 @@ export function Login() {
                     setPin(a.pin)
                     setError('')
                     setFails(0)
+                    setSelectedDemo(a.username)
                   }}
-                  className="rounded-lg border bg-card p-3 text-left hover:bg-accent"
+                  className={`rounded-lg border p-3 text-left transition-colors hover:bg-accent ${selectedDemo === a.username ? 'border-primary bg-accent ring-2 ring-primary/20' : 'bg-card'}`}
                 >
                   <span className="block text-sm font-semibold">{a.name}</span>
                   <span className="block text-xs text-muted-foreground">{tx(`role.${a.role}`)}</span>
                 </button>
               ))}
             </div>
+            {selectedDemo && <p className="text-xs text-primary">{tx('login.signIn')} as {ACCOUNTS.find((a) => a.username === selectedDemo)?.name}. Review the fields above, then continue.</p>}
           </div>
         </div>
       </section>
