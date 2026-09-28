@@ -68,7 +68,7 @@ export function DispatcherLayout() {
   )
 
   return (
-    <div data-mode="light" className="min-h-dvh bg-background text-foreground lg:grid lg:grid-cols-[15rem_1fr]">
+    <div data-mode="light" data-role="dispatcher" className="min-h-dvh bg-background text-foreground lg:grid lg:grid-cols-[15rem_1fr]">
       <aside className="hidden border-r bg-card p-4 lg:block">
         <div className="mb-6 px-2">
           <BrandMark />

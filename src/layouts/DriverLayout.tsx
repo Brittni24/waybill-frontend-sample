@@ -16,7 +16,7 @@ export function DriverLayout() {
   const tab = ({ isActive }: { isActive: boolean }) =>
     cn('relative flex h-14 flex-1 flex-col items-center justify-center gap-0.5 rounded-lg text-xs font-semibold', isActive ? 'bg-accent text-primary' : 'text-muted-foreground')
   return (
-    <div data-mode="dark" className="min-h-dvh bg-background text-foreground sm:bg-black/90">
+    <div data-mode="dark" data-role="driver" className="min-h-dvh bg-background text-foreground sm:bg-black/90">
       <div className="mx-auto flex min-h-dvh max-w-md flex-col bg-background sm:border-x">
         <header className="sticky top-0 z-30 border-b bg-card">
           <div className="flex items-center gap-3 px-4 py-2.5">

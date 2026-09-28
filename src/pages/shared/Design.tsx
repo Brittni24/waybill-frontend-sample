@@ -90,15 +90,15 @@ export function Design() {
           </p>
         </header>
 
-        <Section title="Colour" sub="Waypoint Blue for actions, slate for structure, and a status set that is always colour plus icon plus word.">
+        <Section title="Colour" sub="Storm blue and quiet blue-grey for a dependable delivery workspace, with status colors kept separate.">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
-            <Swatch name="Background slate" v="--background" note="Page background" />
+            <Swatch name="Pale blue-grey" v="--background" note="Page background" />
             <Swatch name="Card surface" v="--card" note="Surfaces" />
             <Swatch name="Line" v="--border" note="Dividers" />
             <Swatch name="Charcoal" v="--foreground" note="Text" />
-            <Swatch name="Slate" v="--muted-foreground" note="Secondary text" />
-            <Swatch name="Waypoint Blue" v="--primary" note="Buttons and focus" />
-            <Swatch name="Route teal" v="--secondary" note="Route line, accents" />
+            <Swatch name="Warm grey" v="--muted-foreground" note="Secondary text" />
+            <Swatch name="Storm blue" v="--primary" note="Actions and navigation" />
+            <Swatch name="Blue-grey" v="--secondary" note="Secondary actions" />
             <Swatch name="Brand: Fresh" v="--brand-fresh" />
             <Swatch name="Brand: Style" v="--brand-style" />
             <Swatch name="Brand: Tech" v="--brand-tech" />
@@ -133,7 +133,7 @@ export function Design() {
           </div>
         </Section>
 
-        <Section title="Type" sub="Plus Jakarta Sans for headings, Inter for everything else, with tabular figures so times and weights line up.">
+        <Section title="Type" sub="Clear headings, quiet body text and tabular figures so times and weights line up.">
           <Card className="space-y-4 p-5">
             <p className="font-display text-5xl font-extrabold leading-none">Plan. Load. Deliver.</p>
             <p className="font-display text-3xl font-bold">Trip 1 · Gampaha · 5 stops</p>

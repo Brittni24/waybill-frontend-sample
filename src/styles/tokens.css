@@ -7,62 +7,62 @@
 
 :root {
   /* Surfaces */
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #f4f7f8;
+  --foreground: #1d2a33;
   --card: #ffffff;
-  --card-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #475569;
-  --border: #e2e8f0;
-  --input: #cbd5e1;
-  --ring: #1e40af;
+  --card-foreground: #1d2a33;
+  --muted: #e8eef1;
+  --muted-foreground: #566772;
+  --border: #cbd7dd;
+  --input: #a4b4bd;
+  --ring: #46657a;
 
   /* Brand */
-  --primary: #1e40af;
+  --primary: #46657a;
   --primary-foreground: #ffffff;
-  --secondary: #0e7490;
+  --secondary: #82939d;
   --secondary-foreground: #ffffff;
-  --accent: #eff6ff;
-  --accent-foreground: #1e3a8a;
-  --destructive: #dc2626;
+  --accent: #e2ebef;
+  --accent-foreground: #334c5c;
+  --destructive: #b84a46;
   --destructive-foreground: #ffffff;
 
   /* Brand tags (Fresh / Style / Tech) */
-  --brand-fresh: #15803d;
-  --brand-fresh-bg: #dcfce7;
-  --brand-style: #6d28d9;
-  --brand-style-bg: #ede9fe;
-  --brand-tech: #334155;
-  --brand-tech-bg: #e2e8f0;
+  --brand-fresh: #2f7a62;
+  --brand-fresh-bg: #dcede6;
+  --brand-style: #8b5c78;
+  --brand-style-bg: #eee3eb;
+  --brand-tech: #4d5d69;
+  --brand-tech-bg: #e2e8eb;
 
   /* Temperature tags */
-  --chilled: #0e7490;
-  --chilled-bg: #cffafe;
-  --ambient: #64748b;
-  --ambient-bg: #f1f5f9;
+  --chilled: #4b8ea8;
+  --chilled-bg: #dcecf2;
+  --ambient: #687782;
+  --ambient-bg: #e8edef;
 
   /* Status set: solid, tint, text-on-tint. Always paired with an icon and a word. */
-  --served: #15803d;
-  --served-bg: #dcfce7;
-  --served-fg: #14532d;
-  --ontime: #2563eb;
-  --ontime-bg: #dbeafe;
-  --ontime-fg: #1e40af;
-  --late: #d97706;
-  --late-bg: #fef3c7;
-  --late-fg: #92400e;
-  --deferred: #dc2626;
-  --deferred-bg: #fee2e2;
-  --deferred-fg: #991b1b;
-  --conflict: #7c3aed;
-  --conflict-bg: #ede9fe;
-  --conflict-fg: #5b21b6;
-  --syncing: #0d9488;
-  --syncing-bg: #ccfbf1;
-  --syncing-fg: #115e59;
-  --offline: #475569;
-  --offline-bg: #e2e8f0;
-  --offline-fg: #334155;
+  --served: #2f7a62;
+  --served-bg: #dcede6;
+  --served-fg: #205441;
+  --ontime: #496f9b;
+  --ontime-bg: #dfe8f3;
+  --ontime-fg: #355579;
+  --late: #b27a2b;
+  --late-bg: #f3e5c9;
+  --late-fg: #79531d;
+  --deferred: #b84a46;
+  --deferred-bg: #f4d9d7;
+  --deferred-fg: #873936;
+  --conflict: #765a8a;
+  --conflict-bg: #e8deed;
+  --conflict-fg: #59436b;
+  --syncing: #2a817e;
+  --syncing-bg: #d8ece9;
+  --syncing-fg: #205f5d;
+  --offline: #68736f;
+  --offline-bg: #e1e7e4;
+  --offline-fg: #4d5955;
 
   /* Shape and type */
   --radius: 0.625rem;
@@ -92,37 +92,37 @@
   --destructive: #f87171;
   --destructive-foreground: #0f172a;
 
-  --brand-fresh: #4ade80;
-  --brand-fresh-bg: #14532d;
-  --brand-style: #c4b5fd;
-  --brand-style-bg: #3b2a70;
-  --brand-tech: #cbd5e1;
-  --brand-tech-bg: #334155;
+  --brand-fresh: #8fd0b2;
+  --brand-fresh-bg: #21483e;
+  --brand-style: #f29a8c;
+  --brand-style-bg: #5a3531;
+  --brand-tech: #bfd0d2;
+  --brand-tech-bg: #35484b;
 
-  --chilled: #67e8f9;
-  --chilled-bg: #0c3b47;
-  --ambient: #cbd5e1;
-  --ambient-bg: #334155;
+  --chilled: #8dc9d8;
+  --chilled-bg: #23434c;
+  --ambient: #c2d0cc;
+  --ambient-bg: #354541;
 
-  --served: #4ade80;
-  --served-bg: #14532d;
-  --served-fg: #86efac;
-  --ontime: #60a5fa;
-  --ontime-bg: #1e3a8a;
-  --ontime-fg: #93c5fd;
-  --late: #fbbf24;
-  --late-bg: #78350f;
-  --late-fg: #fcd34d;
-  --deferred: #f87171;
-  --deferred-bg: #7f1d1d;
-  --deferred-fg: #fca5a5;
-  --conflict: #a78bfa;
-  --conflict-bg: #4c1d95;
-  --conflict-fg: #c4b5fd;
-  --syncing: #2dd4bf;
-  --syncing-bg: #134e4a;
-  --syncing-fg: #5eead4;
-  --offline: #94a3b8;
-  --offline-bg: #334155;
-  --offline-fg: #cbd5e1;
+  --served: #8fd0b2;
+  --served-bg: #21483e;
+  --served-fg: #b2e2c9;
+  --ontime: #9bbce0;
+  --ontime-bg: #263f5c;
+  --ontime-fg: #c0d8f0;
+  --late: #e2b36e;
+  --late-bg: #554222;
+  --late-fg: #f0cc91;
+  --deferred: #ef8b83;
+  --deferred-bg: #5a302e;
+  --deferred-fg: #f5aaa4;
+  --conflict: #c5add2;
+  --conflict-bg: #463850;
+  --conflict-fg: #dcc9e6;
+  --syncing: #87cbc5;
+  --syncing-bg: #214a47;
+  --syncing-fg: #b0e2dd;
+  --offline: #bdcbc6;
+  --offline-bg: #354541;
+  --offline-fg: #d5e0dc;
 }

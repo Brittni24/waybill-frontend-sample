@@ -15,7 +15,7 @@ export function ManagerLayout() {
   const link = ({ isActive }: { isActive: boolean }) =>
     cn('flex h-11 items-center rounded-md px-3 text-sm font-medium', isActive ? 'bg-primary text-primary-foreground' : 'hover:bg-accent')
   return (
-    <div data-mode="light" className="min-h-dvh bg-background text-foreground">
+    <div data-mode="light" data-role="manager" className="min-h-dvh bg-background text-foreground">
       <header className="sticky top-0 z-30 border-b bg-card/95 backdrop-blur">
         <div className="mx-auto flex max-w-4xl flex-wrap items-center gap-x-4 gap-y-1 px-4 py-2">
           <BrandMark />
